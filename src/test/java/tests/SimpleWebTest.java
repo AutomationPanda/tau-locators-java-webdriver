@@ -31,6 +31,7 @@ public class SimpleWebTest {
         driver.get("https://www.duckduckgo.com");
 
         // Enter search phrase
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
         WebElement searchInput = driver.findElement(By.name("q"));
         searchInput.sendKeys("giant panda");
 
@@ -40,7 +41,7 @@ public class SimpleWebTest {
 
         // Wait for results to appear
         wait.until(ExpectedConditions.titleContains("giant panda"));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.result:not(.result--more)")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.result:not(.result--more) a.result__a")));
 
         // Make sure each result contains the word "panda"
         List<WebElement> resultLinks = driver.findElements(By.cssSelector("div.result:not(.result--more) a.result__a"));

@@ -41,10 +41,10 @@ public class SimpleWebTest {
 
         // Wait for results to appear
         wait.until(ExpectedConditions.titleContains("giant panda"));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.result:not(.result--more) a.result__a")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.results_links_deep a.result__a")));
 
         // Make sure each result contains the word "panda"
-        List<WebElement> resultLinks = driver.findElements(By.cssSelector("div.result:not(.result--more) a.result__a"));
+        List<WebElement> resultLinks = driver.findElements(By.cssSelector("div.results_links_deep a.result__a"));
         for (WebElement link : resultLinks) {
             assertTrue(link.getText().matches("(?i).*panda.*"));
         }

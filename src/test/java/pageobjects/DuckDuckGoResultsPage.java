@@ -16,12 +16,12 @@ public class DuckDuckGoResultsPage extends AbstractPage {
         super(driver);
     }
 
-    public List<String> getResultsLinkText() {
+    public List<String> getResultsLinkText(String phrase) {
         // Wait for results to appear
-        getWait().until(ExpectedConditions.titleContains("giant panda"));
+        getWait().until(ExpectedConditions.titleContains(phrase));
         getWait().until(ExpectedConditions.visibilityOfElementLocated(resultsLink));
 
-        // Make sure each result contains the word "panda"
+        // Get the result link texts
         List<WebElement> resultLinks = getDriver().findElements(resultsLink);
         List<String> linkTexts = resultLinks.stream().map(WebElement::getText).collect(Collectors.toList());
 

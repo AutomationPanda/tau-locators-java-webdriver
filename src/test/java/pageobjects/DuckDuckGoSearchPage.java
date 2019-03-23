@@ -19,7 +19,7 @@ public class DuckDuckGoSearchPage extends AbstractPage {
 
     public void search(String phrase) {
         getWait().until(ExpectedConditions.visibilityOfElementLocated(searchInput));
-        getDriver().findElement(searchInput).sendKeys("giant panda");
+        getDriver().findElement(searchInput).sendKeys(phrase);
         getDriver().findElement(searchButton).click();
     }
 }

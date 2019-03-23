@@ -28,7 +28,7 @@ public class PageObjectWebTest {
         searchPage.search("giant panda");
 
         DuckDuckGoResultsPage resultsPage = new DuckDuckGoResultsPage(driver);
-        List<String> linkTexts = resultsPage.getResultsLinkText();
+        List<String> linkTexts = resultsPage.getResultsLinkText("panda");
 
         for (String text : linkTexts) {
             assertTrue(text.matches("(?i).*panda.*"));

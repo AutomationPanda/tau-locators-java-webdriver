@@ -31,8 +31,8 @@ public class SimpleWebTest {
         driver.get("https://www.duckduckgo.com");
 
         // Enter search phrase
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
-        WebElement searchInput = driver.findElement(By.name("q"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("search_form_input_homepage")));
+        WebElement searchInput = driver.findElement(By.id("search_form_input_homepage"));
         searchInput.sendKeys("giant panda");
 
         // Click search button

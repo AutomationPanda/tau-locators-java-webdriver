@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +24,11 @@ public class DuckDuckGoResultsPage extends AbstractPage {
 
         // Get the result link texts
         List<WebElement> resultLinks = getDriver().findElements(resultsLink);
-        List<String> linkTexts = resultLinks.stream().map(WebElement::getText).collect(Collectors.toList());
+        List<String> linkTexts = new LinkedList<>();
+
+        for (WebElement e : resultLinks) {
+            linkTexts.add(e.getText());
+        }
 
         return linkTexts;
     }

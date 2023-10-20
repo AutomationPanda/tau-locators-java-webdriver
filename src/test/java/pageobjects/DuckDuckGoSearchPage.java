@@ -6,8 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DuckDuckGoSearchPage extends AbstractPage {
 
-    public final static By searchInput = By.id("search_form_input_homepage");
-    public final static By searchButton = By.id("search_button_homepage");
+    public final static By searchInput = By.id("searchbox_input");
+    public final static By searchButton = By.xpath("//button[@aria-label='Search']");
 
     public DuckDuckGoSearchPage(WebDriver driver) {
         super(driver);

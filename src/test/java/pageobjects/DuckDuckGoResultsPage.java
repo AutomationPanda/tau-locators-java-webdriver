@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class DuckDuckGoResultsPage extends AbstractPage {
 
-    public final static By resultsLink = By.cssSelector("div.results_links_deep a.result__a");
+    public final static By resultsLink = By.cssSelector("h2 a[data-testid='result-title-a'] span");
 
     public DuckDuckGoResultsPage(WebDriver driver) {
         super(driver);

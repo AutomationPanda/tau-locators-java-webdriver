@@ -31,20 +31,20 @@ public class SimpleWebTest {
         driver.get("https://www.duckduckgo.com");
 
         // Enter search phrase
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("search_form_input_homepage")));
-        WebElement searchInput = driver.findElement(By.id("search_form_input_homepage"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("searchbox_input")));
+        WebElement searchInput = driver.findElement(By.id("searchbox_input"));
         searchInput.sendKeys("giant panda");
 
         // Click search button
-        WebElement searchButton = driver.findElement(By.id("search_button_homepage"));
+        WebElement searchButton = driver.findElement(By.xpath("//button[@aria-label='Search']"));
         searchButton.click();
 
         // Wait for results to appear
         wait.until(ExpectedConditions.titleContains("giant panda"));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.results_links_deep a.result__a")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h2 a[data-testid='result-title-a'] span")));
 
         // Make sure each result contains the word "panda"
-        List<WebElement> resultLinks = driver.findElements(By.cssSelector("div.results_links_deep a.result__a"));
+        List<WebElement> resultLinks = driver.findElements(By.cssSelector("h2 a[data-testid='result-title-a'] span"));
         for (WebElement link : resultLinks) {
             assertTrue(link.getText().matches("(?i).*panda.*"));
         }
